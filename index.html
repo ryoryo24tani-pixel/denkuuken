@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大日本電脳空理謀計総合研究所（電空研）</title>
+    <style>
+        /* お堅いIT企業・シンクタンク風の超洗練されたデザイン */
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Segoe UI", sans-serif;
+            line-height: 1.8;
+            color: #1a202c;
+            background-color: #f7fafc;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #0b192c;
+            color: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 4px solid #1e3a8a;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+            letter-spacing: 2px;
+        }
+        header p {
+            margin: 10px 0 0 0;
+            font-size: 14px;
+            color: #93c5fd;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        h2 {
+            color: #0f172a;
+            border-left: 5px solid #1e3a8a;
+            padding-left: 15px;
+            margin-top: 0;
+            font-size: 20px;
+        }
+        .philosophy {
+            background-color: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            padding: 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #166534;
+            text-align: center;
+        }
+        /* 所長プロフィールのレイアウト */
+        .profile-section {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+        .profile-img {
+            width: 220px;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            border: 2px solid #0b192c;
+        }
+        .profile-text h3 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+            color: #1e3a8a;
+        }
+        /* お試しAIツールのデザイン */
+        .tool-title {
+            color: #b91c1c;
+            border-left: 5px solid #b91c1c;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 15px;
+            margin-bottom: 15px;
+            resize: vertical;
+        }
+        button {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background-color: #0f172a;
+        }
+        #output-area {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #1e293b;
+            color: #38bdf8;
+            border-radius: 6px;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 14px;
+            white-space: pre-wrap;
+            display: none;
+            border-left: 5px solid #38bdf8;
+        }
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #64748b;
+            font-size: 12px;
+            background-color: #0f172a;
+            margin-top: 60px;
+        }
+        @media (max-width: 600px) {
+            .profile-section { flex-direction: column; align-items: center; text-align: center; }
+        }
+                /* 追加機能用のスタイル */
+        .flex-container {
+            display: flex;
+            gap: 20px;
+        }
+        .flex-child {
+            flex: 1;
+        }
+        .range-group {
+            margin-bottom: 15px;
+        }
+        .range-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="range"] {
+            width: 100%;
+        }
+        /* スステルスモード用の全画面目隠し */
+        #stealth-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            z-index: 9999;
+            display: none;
+            padding: 40px;
+            box-sizing: border-box;
+            font-family: "MS Mincho", "serif";
+            color: #000000;
+        }
+        .stealth-btn {
+            background-color: #b91c1c;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 600px) {
+            .flex-container { flex-direction: column; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>大日本電脳空理謀計総合研究所</h1>
+        <p>Japan Cyber-Sophistry Strategic Research Institute（略称：電空研）</p>
+    </header>
+
+    <div class="container">
+
+        <!-- 理念セクション -->
+        <div class="card">
+            <h2>最高経営理念（ガバナンスモデル）</h2>
+            <p class="philosophy">
+                「非線形ドメインにおける責任境界の流動化技術により、組織内インシデントの帰属先を自動的に解体・融解させる次世代ガバナンス」
+            </p>
+        </div>
+
+        <!-- 代表挨拶セクション -->
+        <div class="card">
+            <h2>最高統括所長 プロフィール</h2>
+            <div class="profile-section">
+                <!-- 先ほどシーアートで作った画像を同じフォルダーに「boss.png」という名前で保存してください -->
+                <img src="boss.png" alt="ホークス・トリシャリー所長" class="profile-img">
+                <div class="profile-text">
+                    <h3>最高統括所長：ホークス・トリシャリー（Hoax Tricherie）</h3>
+                    <p>
+                        バナリック連邦王国出身。資源不足と不条理な条約に起因する長年の内乱地帯において、高度な軍事情報処理および組織生存戦略の構築に従事。戦時中の負傷により、現在は特殊稼働式車椅子およびタクティカルアイマスクを着用して執務を行う。<br>
+                        過酷な紛争環境下で培った「不条理な責任を組織全体へ融解させ、個体の過失を自動的に消滅させる数理モデル」を確立。本邦における組織統治の脆弱性を解決すべく、大日本電脳空理謀計総合研究所を設立、現職に就任。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 事業内容セクション -->
+        <div class="card">
+            <h2>主要事業ドメイン</h2>
+            <ul>
+                <li><strong>過失等価分散型経営コンサルティング</strong><br>不祥事発生時、独自の多層的因果マトリクスを用いて責任の帰属先を流動化させます。</li>
+                <li><strong>超論理的瑕疵隠蔽文書自動錬成システムの開発</strong><br>業務上のあらゆる不手際を、客観的不可抗力へと再定義する自然言語処理AIソリューション。</li>
+            </ul>
+        </div>
+
+                <!-- ★追加機能セクション（②と③） -->
+        <div class="card">
+            <h2>【防衛システム】上司接近時電脳擬態モード（緊急ステルス）</h2>
+            <p>背後に上司または監査権限者が接近した際、即座に起動してください。画面を国家機関の統計データへ擬態させ、視覚的追及を遮断します。（※画面のどこかをクリックすると解除されます）</p>
+            <button class="stealth-btn" onclick="activateStealth()">【緊急起動】文部科学省統計データ画面へ擬態</button>
+        </div>
+
+        <div class="card">
+            <h2>【戦略的撤退】ホークス式「車椅子最高速退避」シミュレーター</h2>
+            <p>不祥事発覚時、責任境界線の外側へ流動的退避を行うための最適逃亡ルートおよび臨界速度を算出します。</p>
+            <div class="flex-container">
+                <div class="flex-child">
+                    <div class="range-group">
+                        <label>上司の怒声音量 (dB): <span id="val-db">80</span>dB</label>
+                        <input type="range" id="input-db" min="40" max="120" value="80" oninput="document.getElementById('val-db').innerText=this.value">
+                    </div>
+                    <div class="range-group">
+                        <label>オフィスの通路幅 (m): <span id="val-width">1.5</span>m</label>
+                        <input type="range" id="input-width" min="0.5" max="3.0" step="0.1" value="1.5" oninput="document.getElementById('val-width').innerText=this.value">
+                    </div>
+                </div>
+                <div class="flex-child">
+                    <div class="range-group">
+                        <label>現在のやらかし度度合い: <span id="val-risk">50</span>%</label>
+                        <input type="range" id="input-risk" min="10" max="100" value="50" oninput="document.getElementById('val-risk').innerText=this.value">
+                    </div>
+                </div>
+            </div>
+            <button onclick="calculateEscape()">退避ルート・臨界速度演算開始</button>
+            <div id="escape-output" style="margin-top:20px; padding:20px; background-color:#1e293b; color:#a7f3d0; border-radius:6px; display:none; white-space:pre-wrap; font-family:monospace; border-left:5px solid #10b981;"></div>
+        </div>
+
+        <!-- ステルスモード時に表示される偽の文科省画面 -->
+        <div id="stealth-screen" onclick="deactivateStealth()">
+            <h1 style="font-size: 24px; border-bottom: 2px solid #000; padding-bottom: 10px;">令和8年度 高等教育機関における情報数理ドメインの流動性に関する実態調査</h1>
+            <p style="font-size: 12px; color: #666;">文部科学省 生涯学習政策局 調査企画課</p>
+            <table border="1" style="border-collapse: collapse; width: 100%; margin-top: 20px; text-align: center;">
+                <tr style="background-color: #f2f2f2;"><th>調査対象区分</th><th>過失分散係数</th><th>責任融解確率</th><th>非線形ドメイン変位</th></tr>
+                <tr><td>第一種電脳研究所</td><td>0.86</td><td>94.2%</td><td>+1.42</td></tr>
+                <tr><td>第二種空理謀計法人</td><td>0.12</td><td>99.8%</td><td>-0.08</td></tr>
+                <tr><td>地方自治体隠蔽体質</td><td>0.55</td><td>76.4%</td><td>+0.95</td></tr>
+            </table>
+            <p style="margin-top: 30px; font-size: 14px; line-height: 2;">【概要】本調査は、国内の主要シンクタンクにおけるインシデント発生時のガバナンス移行プロセスをマクロ経済学的視点から定量分析したものである。大数法則の彼方へ雲散霧消せしめるモデルの構築が急務とされている。（※画面をクリックすると電空研に戻ります）</p>
+        </div>
+
+        <!-- ★お試しAIツールセクション -->
+        <div class="card">
+            <h2 class="tool-title">【体験版窓口】責任帰属先自動融解プロセッサー</h2>
+            <p>貴殿が組織内で発生させたインシデント（やらかし）を入力してください。電空研の流動化ガバナンスモデルに基づき、過失を自動融解した公式報告書を即座に錬成します。</p>
+            
+            <textarea id="input-incident" placeholder="例：大事なプレゼン資料の提出期限をすっかり忘れて寝坊してしまい、丸一日遅れてしまいました。"></textarea>
+            <button onclick="meltIncident()">インシデントを融解・自動解体する</button>
+
+            <div id="output-area"></div>
+        </div>
+
+    </div>
+
+    <footer>
+        &copy; 2026 大日本電脳空理謀計総合研究所 All Rights Reserved. <br>
+        本サイトに記載されている組織・技術・国家はすべて学術的フィクションであり、実在の人物や団体とは関係ありません。
+    </footer>
+
+    <script>
+        // コードが分からなくても大丈夫！ここが「AIの頭脳」を再現する仕掛けです
+        function meltIncident() {
+            const input = document.getElementById("input-incident").value.trim();
+            const outputArea = document.getElementById("output-area");
+            
+            if (!input) {
+                alert("インシデント内容を入力してください。");
+                return;
+            }
+
+            // どんなやらかしを入れても、電空研の超ヘ理屈で100%煙に巻く報告書テンプレート
+            const fakeReport = `【業務進捗における時空間非線形歪みに関する公式報告書】
+
+1. 事象の概要
+対象者が検知したインシデント（内容：「${input}」）について、当研究所の責任境界流動化エンジンによる解析を実施した。
+
+2. 因果関係の解析結果
+本件は、個別担当者の主観的瑕疵（かし）や怠慢に起因するものではなく、組織内における情報伝達ドメインの流動化プロセス、および外部環境因子との超高次元的な衝突において発生した、不可視の確率論的タイムラグに拠るものである。
+
+3. 責任の帰属に関する結論
+調査の結果、タスクの『締切・期限・義務』という固定概念そのものが、現代の柔軟なワークフロー（非線形ドメイン）と構造的摩擦を起こし、責任の境界線が一時的に融解したことが証明された。
+したがって、本事象は個人の過失ではなく、組織全体のガバナンスが次世代フェーズへと自動移行する過程で生じた「概念的システムエラー」であり、特定の帰属先（犯人）は存在しないものと結論づける。
+
+4. 今後の対応指針
+特定の個人に対して過失を追及する行為は、組織の流動性および心理的安全性を著しく阻害するリスクを孕む。よって、本件インシデントの帰属先は【自動解体および完全融解】とし、不問に処すものとする。
+
+大日本電脳空理謀計総合研究所
+最高統括所長 ホークス・トリシャリー`;
+
+            // 画面に表示する処理
+            outputArea.innerText = fakeReport;
+            outputArea.style.display = "block";
+            outputArea.scrollIntoView({ behavior: 'smooth' });
+        }
+                // ③ 緊急ステルスモードの起動・解除
+        function activateStealth() {
+            document.getElementById("stealth-screen").style.display = "block";
+        }
+        function deactivateStealth() {
+            document.getElementById("stealth-screen").style.display = "none";
+        }
+
+        // ② 車椅子最高速退避シミュレーターの演算処理
+        function calculateEscape() {
+            const db = parseInt(document.getElementById("input-db").value);
+            const width = parseFloat(document.getElementById("input-width").value);
+            const risk = parseInt(document.getElementById("input-risk").value);
+            const output = document.getElementById("escape-output");
+
+            // 入力値に応じて、それっぽい数値をデタラメに高速演算
+            const speed = Math.round((db * risk) / (width * 10));
+            const angle = Math.round((180 - risk) / width) % 360;
+
+            const report = `【戦略的撤退シミュレーション解析結果報告書】
+
+[演算ステータス]: 成功（臨界非線形脱出ルートを検知）
+
+■ 算出された臨界退避スペック
+・推奨退避速度: 時速 ${speed} km （ホークス所長専用機「ハチロク改」仕様）
+・初期微動ベクトルの進入角度: 反時計回り ${angle} 度
+・想定される摩擦係数: 流動化ガバナンス許容値内
+
+■ 状況評価および戦術展開
+対象上司の怒声（${db}dB）および現在の破滅リスク（${risk}%）を勘案した結果、これ以上の言語的弁明（空理）は不調に終わる確率が極めて高い。
+直ちにオフィスの通路幅（${width}m）の死角を利用し、責任境界線の外側へ向けた「流動的後退」を敢行せよ。
+
+【警告】速度が時速86kmを超えた場合、オフィスチェアのキャスターが時空摩擦で融解する恐れがあります。速やかに退避を完了させてください。`;
+
+            output.innerText = report;
+            output.style.display = "block";
+            output.scrollIntoView({ behavior: 'smooth' });
+        }
+
+    </script>
+</body>
+</html>
